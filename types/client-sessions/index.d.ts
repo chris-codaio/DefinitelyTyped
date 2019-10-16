@@ -1,6 +1,7 @@
 // Type definitions for client-sessions 0.8
 // Project: https://github.com/mozilla/node-client-sessions
 // Definitions by: Aditya <https://github.com/netroy>
+//                 Christopher Eck <https://github.com/chrisleck>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
@@ -55,6 +56,12 @@ declare namespace client_sessions {
   interface ComputeHmacOptions {
     signatureAlgorithm: string;
     signatureKey: Buffer;
+  }
+
+  interface RequestSessionObject {
+    reset(keysToPreserve?: string[]): void;
+    destroy(): void;
+    setDuration(newDuration: number, ephemeral?: boolean): void;
   }
 
   interface Util {
